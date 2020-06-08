@@ -66,7 +66,7 @@ const App = (
 
       <Success winner={winner} />
 
-      <hr />
+
 
       <Reset handleReset={handleReset} />
 
