@@ -1,6 +1,6 @@
 import React from "react";
 import Header from './components/Header';
-
+import Reset from './components/Reset';
 
 const App = (
   {
@@ -69,9 +69,7 @@ const App = (
 
       <hr />
 
-      <button className="btn btn-danger" onClick={handleReset}>
-        Reset
-      </button>
+      <Reset handleReset={handleReset} />
 
     </React.Fragment >);
 };
