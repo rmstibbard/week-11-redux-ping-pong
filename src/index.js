@@ -20,7 +20,7 @@ const reducer = (state, action) => {
       ...state,
       player2: state.player2 + 1
     };
-    case "RESET": return state;
+    case "RESET": return initial;
     default: return state;
   }
 };
