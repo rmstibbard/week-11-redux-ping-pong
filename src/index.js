@@ -7,22 +7,43 @@ import { createStore } from "redux";
 
 const initial = {
   player1: 0,
-  player2: 0
+  player2: 0,
+  player1Serving: true
 };
+
+
+const player1Scores = (state) => (
+  {
+    ...state,
+    player1: state.player1 + 1
+  }
+);
+
+const player2Scores = (state) => (
+  {
+    ...state,
+    player2: state.player2 + 1
+  }
+);
+
+const setServer = (state) => {
+  const { player1, player2, player1Serving } = state;
+  return (
+    {
+      ...state,
+      player1Serving: (player1 + player2) % 5 === 0 ? !player1Serving : player1Serving
+    }
+  )
+}
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "PLAYER1_SCORES": return {
-      ...state,
-      player1: state.player1 + 1
-    };
-    case "PLAYER2_SCORES": return {
-      ...state,
-      player2: state.player2 + 1
-    };
+    case "PLAYER1_SCORES": return setServer(player1Scores(state));
+    case "PLAYER2_SCORES": return setServer(player2Scores(state));
     case "RESET": return initial;
     default: return state;
   }
+
 };
 
 const store = createStore(
@@ -33,7 +54,6 @@ const store = createStore(
 
 store.subscribe(() => {
   const state = store.getState();
-  console.log(state.count);
 })
 
 const render = () => {
