@@ -31,6 +31,7 @@ const App = (
       <Reset handleReset={handleReset} />
 
     </React.Fragment >);
+
 };
 
 export default App;

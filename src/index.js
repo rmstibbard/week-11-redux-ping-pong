@@ -37,7 +37,7 @@ const setServer = (state) => {
 }
 
 const winningPlayer = (state) => {
-  if (state.player1 === 21) {
+  if ((state.player1 >= 21) && (state.player1 - state.player2 >= 2)) {
     return (
       {
         ...state,
@@ -45,7 +45,7 @@ const winningPlayer = (state) => {
       }
     )
   }
-  if (state.player2 === 21) {
+  if ((state.player2 >= 21) && (state.player2 - state.player1 >= 2)) {
     return (
       {
         ...state,
