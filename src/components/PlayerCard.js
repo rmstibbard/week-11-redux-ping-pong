@@ -2,6 +2,7 @@ import React from "react";
 
 const PlayerCard = (
   {
+    player,
     score,
     winner,
     handleClick,
@@ -10,7 +11,7 @@ const PlayerCard = (
 ) => (
     <div className="col-md-6 mt-4">
       <div className={"card text-center " + (serving === true ? "bg-dark text-white" : "")}>
-        <h5 className="card-header">Player 1</h5>
+        <h5 className="card-header">Player {player}</h5>
         <div className="card-body">
           <p className="card-text display-1">{score}</p>
         </div>
