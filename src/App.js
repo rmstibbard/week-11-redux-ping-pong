@@ -1,7 +1,5 @@
 import React from "react";
 
-
-
 const App = () => (
   <React.Fragment>
     {/* header */}

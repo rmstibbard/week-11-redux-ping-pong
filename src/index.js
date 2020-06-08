@@ -2,9 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
-
-
 
 import { createStore } from "redux";
 
@@ -14,7 +11,10 @@ const initial = {
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "INCREMENT": return { ...state, count: state.count + 1 };
+    case "INCREMENT": return {
+      ...state,
+      count: state.count + 1
+    };
     default: return state;
   }
 };
@@ -28,15 +28,10 @@ store.subscribe(() => {
 
 store.dispatch({ type: "INCREMENT" });
 
-
-
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-
-serviceWorker.unregister();
 
