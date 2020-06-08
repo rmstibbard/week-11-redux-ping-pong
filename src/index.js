@@ -11,7 +11,6 @@ const initial = {
   player1Serving: true
 };
 
-
 const player1Scores = (state) => (
   {
     ...state,
@@ -66,6 +65,7 @@ const render = () => {
       handleClickPlayer1={() => store.dispatch({ type: "PLAYER1_SCORES" })}
       handleClickPlayer2={() => store.dispatch({ type: "PLAYER2_SCORES" })}
       handleReset={() => store.dispatch({ type: "RESET" })}
+      player1Serving={state.player1Serving}
     />,
     document.getElementById("root")
   );

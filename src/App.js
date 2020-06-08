@@ -6,6 +6,7 @@ const App = (
     player2,
     handleClickPlayer1,
     handleClickPlayer2,
+    player1Serving,
     handleReset
   }
 ) => (
@@ -18,7 +19,7 @@ const App = (
       {/* scores */}
       <div className="row mb-4">
         <div className="col-md-6 mt-4">
-          <div className="card text-center bg-dark text-white">
+          <div className={"card text-center " + (player1Serving === true ? "bg-dark text-white" : "")}>
             <h5 className="card-header">Player 1</h5>
             <div className="card-body">
               <p className="card-text display-1">{player1}</p>
@@ -34,7 +35,7 @@ const App = (
         </div>
 
         <div className="col-md-6 mt-4">
-          <div className="card text-center">
+          <div className={"card text-center " + (player1Serving === false ? "bg-dark text-white" : "")}>
             <h5 className="card-header">Player 2</h5>
             <div className="card-body">
               <p className="card-text display-1">{player2}</p>
