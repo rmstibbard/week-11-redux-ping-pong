@@ -1,4 +1,6 @@
 import React from "react";
+import Header from './components/Header';
+
 
 const App = (
   {
@@ -11,66 +13,67 @@ const App = (
     winner
   }
 ) => {
-  return (<React.Fragment>
+  return (
 
-    <header className="jumbotron mt-4 mb-0">
-      <h1>PongPing</h1>
-    </header>
+    <React.Fragment>
 
-    <div className="row mb-4">
-      <div className="col-md-6 mt-4">
-        <div className={"card text-center " + (player1Serving === true ? "bg-dark text-white" : "")}>
-          <h5 className="card-header">Player 1</h5>
-          <div className="card-body">
-            <p className="card-text display-1">{player1}</p>
+      <Header />
+
+      <div className="row mb-4">
+        <div className="col-md-6 mt-4">
+          <div className={"card text-center " + (player1Serving === true ? "bg-dark text-white" : "")}>
+            <h5 className="card-header">Player 1</h5>
+            <div className="card-body">
+              <p className="card-text display-1">{player1}</p>
+            </div>
+            <div className="card-footer">
+              {winner === "" ? (
+                <button
+                  className="form-control btn btn-success" onClick={handleClickPlayer1} >
+                  +
+                </button>
+              ) :
+                (
+                  <button className="form-control btn btn-disabled" disabled >X</button>
+                )
+              }
+            </div>
           </div>
-          <div className="card-footer">
-            {winner === "" ? (
-              <button
-                className="form-control btn btn-success" onClick={handleClickPlayer1} >
-                +
-              </button>
-            ) :
-              (
-                <button className="form-control btn btn-disabled" disabled >X</button>
-              )
-            }
+        </div>
+
+        <div className="col-md-6 mt-4">
+          <div className={"card text-center " + (player1Serving === false ? "bg-dark text-white" : "")}>
+            <h5 className="card-header">Player 2</h5>
+            <div className="card-body">
+              <p className="card-text display-1">{player2}</p>
+            </div>
+            <div className="card-footer">
+              {winner === "" ? (
+                <button
+                  className="form-control btn btn-success" onClick={handleClickPlayer2} >
+                  +
+                </button>
+              ) :
+                (
+                  <button className="form-control btn btn-disabled" disabled >X</button>
+                )
+              }
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="col-md-6 mt-4">
-        <div className={"card text-center " + (player1Serving === false ? "bg-dark text-white" : "")}>
-          <h5 className="card-header">Player 2</h5>
-          <div className="card-body">
-            <p className="card-text display-1">{player2}</p>
-          </div>
-          <div className="card-footer">
-            {winner === "" ? (
-              <button
-                className="form-control btn btn-success" onClick={handleClickPlayer2} >
-                +
-              </button>
-            ) :
-              (
-                <button className="form-control btn btn-disabled" disabled >X</button>
-              )
-            }
-          </div>
-        </div>
-      </div>
-    </div>
+      <h2 className="alert alert-success">
+        {(winner === "") ? '' : `Player ${winner} wins`}
+      </h2>
 
-    <h2 className="alert alert-success">
-      {(winner === "") ? '' : `Player ${winner} wins`}
-    </h2>
+      <hr />
 
-    <hr />
-
-    <button className="btn btn-danger" onClick={handleReset}>
-      Reset
+      <button className="btn btn-danger" onClick={handleReset}>
+        Reset
       </button>
-  </React.Fragment >);
+
+    </React.Fragment >);
 };
 
 export default App;
