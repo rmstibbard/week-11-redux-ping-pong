@@ -28,7 +28,7 @@ const reducer = (state, action) => {
 const store = createStore(
   reducer,
   initial,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()  // Enable redux
 );
 
 store.subscribe(() => {
@@ -36,12 +36,10 @@ store.subscribe(() => {
   console.log(state.count);
 })
 
-
 const render = () => {
   let state = store.getState();
 
-  // pass in state.value as a value prop
-  ReactDOM.render(
+  ReactDOM.render( // Not good practice to have this inside render
     <App
       player1={state.player1}
       player2={state.player2}
@@ -52,7 +50,6 @@ const render = () => {
     document.getElementById("root")
   );
 };
-
 
 store.subscribe(render);
 render();
