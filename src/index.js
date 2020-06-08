@@ -6,32 +6,53 @@ import App from './App';
 import { createStore } from "redux";
 
 const initial = {
-  count: 1,
+  player1: 0,
+  player2: 0
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "INCREMENT": return {
+    case "PLAYER1_SCORES": return {
       ...state,
-      count: state.count + 1
+      player1: state.player1 + 1
     };
+    case "PLAYER2_SCORES": return {
+      ...state,
+      player2: state.player2 + 1
+    };
+    case "RESET": return state;
     default: return state;
   }
 };
 
-const store = createStore(reducer, initial);
-
-store.subscribe(() => {
-  let state = store.getState();
-  console.log(state.count);
-});
-
-store.dispatch({ type: "INCREMENT" });
-
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+const store = createStore(
+  reducer,
+  initial,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
+store.subscribe(() => {
+  const state = store.getState();
+  console.log(state.count);
+})
+
+
+const render = () => {
+  let state = store.getState();
+
+  // pass in state.value as a value prop
+  ReactDOM.render(
+    <App
+      player1={state.player1}
+      player2={state.player2}
+      handleClickPlayer1={() => store.dispatch({ type: "PLAYER1_SCORES" })}
+      handleClickPlayer2={() => store.dispatch({ type: "PLAYER2_SCORES" })}
+      handleReset={() => store.dispatch({ type: "RESET" })}
+    />,
+    document.getElementById("root")
+  );
+};
+
+
+store.subscribe(render);
+render();
