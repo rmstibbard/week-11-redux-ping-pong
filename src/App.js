@@ -22,8 +22,23 @@ const App = (
       <Header />
 
       <div className="row mb-4">
-        <PlayerCard player="1" score={player1} winner={winner} handleClick={handleClickPlayer1} serving={player1Serving} />
-        <PlayerCard player="2" score={player2} winner={winner} handleClick={handleClickPlayer2} serving={!player1Serving} />
+
+        <PlayerCard
+          player="1"
+          score={player1}
+          winner={winner}
+          handleClick={handleClickPlayer1}
+          serving={player1Serving}
+        />
+
+        <PlayerCard
+          player="2"
+          score={player2}
+          winner={winner}
+          handleClick={handleClickPlayer2}
+          serving={!player1Serving}
+        />
+
       </div>
 
       <Success winner={winner} />
