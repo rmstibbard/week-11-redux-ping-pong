@@ -25,9 +25,16 @@ const App = (
             <p className="card-text display-1">{player1}</p>
           </div>
           <div className="card-footer">
-            <button className="form-control btn btn-success" onClick={handleClickPlayer1}>
-              +
+            {winner === "" ? (
+              <button
+                className="form-control btn btn-success" onClick={handleClickPlayer1} >
+                +
               </button>
+            ) :
+              (
+                <button className="form-control btn btn-disabled" disabled >X</button>
+              )
+            }
           </div>
         </div>
       </div>
@@ -39,9 +46,16 @@ const App = (
             <p className="card-text display-1">{player2}</p>
           </div>
           <div className="card-footer">
-            <button className="form-control btn btn-success" onClick={handleClickPlayer2}>
-              +
+            {winner === "" ? (
+              <button
+                className="form-control btn btn-success" onClick={handleClickPlayer2} >
+                +
               </button>
+            ) :
+              (
+                <button className="form-control btn btn-disabled" disabled >X</button>
+              )
+            }
           </div>
         </div>
       </div>
@@ -56,7 +70,7 @@ const App = (
     <button className="btn btn-danger" onClick={handleReset}>
       Reset
       </button>
-  </React.Fragment>);
+  </React.Fragment >);
 };
 
 export default App;

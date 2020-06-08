@@ -61,7 +61,6 @@ const winningPlayer = (state) => {
   )
 }
 
-
 const reducer = (state, action) => {
   switch (action.type) {
     case "PLAYER1_SCORES": return winningPlayer(setServer(player1Scores(state)));
