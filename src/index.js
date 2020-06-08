@@ -28,10 +28,17 @@ const player2Scores = (state) => (
 
 const setServer = (state) => {
   const { player1, player2, player1Serving } = state;
+
+  let changeServer = 5;
+
+  if ((player1 >= 20) && (player2 >= 20)) {
+    changeServer = 2;
+  }
+
   return (
     {
       ...state,
-      player1Serving: (player1 + player2) % 5 === 0 ? !player1Serving : player1Serving
+      player1Serving: (player1 + player2) % changeServer === 0 ? !player1Serving : player1Serving
     }
   )
 }
