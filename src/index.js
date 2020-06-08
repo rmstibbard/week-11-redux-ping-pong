@@ -8,7 +8,8 @@ import { createStore } from "redux";
 const initial = {
   player1: 0,
   player2: 0,
-  player1Serving: true
+  player1Serving: true,
+  winner: ""
 };
 
 const player1Scores = (state) => (
@@ -35,20 +36,45 @@ const setServer = (state) => {
   )
 }
 
+const winningPlayer = (state) => {
+  if (state.player1 === 21) {
+    return (
+      {
+        ...state,
+        winner: "1"
+      }
+    )
+  }
+  if (state.player2 === 21) {
+    return (
+      {
+        ...state,
+        winner: "2"
+      }
+    )
+  }
+  return (
+    {
+      ...state,
+      winner: ""
+    }
+  )
+}
+
+
 const reducer = (state, action) => {
   switch (action.type) {
-    case "PLAYER1_SCORES": return setServer(player1Scores(state));
-    case "PLAYER2_SCORES": return setServer(player2Scores(state));
+    case "PLAYER1_SCORES": return winningPlayer(setServer(player1Scores(state)));
+    case "PLAYER2_SCORES": return winningPlayer(setServer(player2Scores(state)));
     case "RESET": return initial;
     default: return state;
   }
-
 };
 
 const store = createStore(
   reducer,
   initial,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()  // Enable redux
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()  // Enable redux devtools
 );
 
 store.subscribe(() => {
@@ -66,6 +92,7 @@ const render = () => {
       handleClickPlayer2={() => store.dispatch({ type: "PLAYER2_SCORES" })}
       handleReset={() => store.dispatch({ type: "RESET" })}
       player1Serving={state.player1Serving}
+      winner={state.winner}
     />,
     document.getElementById("root")
   );
