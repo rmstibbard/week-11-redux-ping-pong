@@ -1,6 +1,7 @@
 import React from "react";
 import Header from './components/Header';
 import Reset from './components/Reset';
+import Success from './components/Success';
 
 const App = (
   {
@@ -63,9 +64,7 @@ const App = (
         </div>
       </div>
 
-      <h2 className="alert alert-success">
-        {(winner === "") ? '' : `Player ${winner} wins`}
-      </h2>
+      <Success winner={winner} />
 
       <hr />
 
