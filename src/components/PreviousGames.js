@@ -19,13 +19,13 @@ const PreviousGames = ({ previousGames }) => (
           <tbody>
 
             {
-              previousGames.reverse().map((previousGame, index) => (
+              previousGames.map((previousGame, index) => (
                 <tr>
                   <td>
-                    {previousGames.length - index}
+                    {index}
                   </td>
-                  <td className={previousGame.player1.won ? "winner" : "loser"}>{previousGame.player1.score}</td>
-                  <td className={previousGame.player1.won ? "winner" : "loser"}>{previousGame.player1.score}</td>
+                  <td className={previousGame.player1.won ? " winner" : " loser"}>{previousGame.player1.score}</td>
+                  <td className={previousGame.player2.won ? " winner" : " loser"}>{previousGame.player2.score}</td>
                 </tr>
               ))
             }
