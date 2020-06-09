@@ -5,13 +5,14 @@ import App from './App';
 import { createStore, compose } from "redux";
 import persistState from "redux-localstorage";
 
-
 const initial = {
-  player1: 0,
-  player2: 0,
+  player1: 10,
+  player2: 10,
   player1Serving: true,
-  winner: ""
+  winner: "",
+  previousGames: []
 };
+
 
 const player1Scores = (state) => (
   {
@@ -49,7 +50,20 @@ const winningPlayer = (state) => {
     return (
       {
         ...state,
-        winner: "1"
+        winner: "1",
+        previousGames: [
+          ...state.previousGames,
+          {
+            player1: {
+              score: state.player1,
+              won: true
+            },
+            player2: {
+              score: state.player2,
+              won: false
+            }
+          }
+        ]
       }
     )
   }
@@ -57,7 +71,20 @@ const winningPlayer = (state) => {
     return (
       {
         ...state,
-        winner: "2"
+        winner: "2",
+        previousGames: [
+          ...state.previousGames,
+          {
+            player1: {
+              score: state.player1,
+              won: false
+            },
+            player2: {
+              score: state.player2,
+              won: true
+            }
+          }
+        ]
       }
     )
   }
@@ -73,7 +100,10 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "PLAYER1_SCORES": return winningPlayer(setServer(player1Scores(state)));
     case "PLAYER2_SCORES": return winningPlayer(setServer(player2Scores(state)));
-    case "RESET": return initial;
+    case "RESET": return {
+      ...initial,
+      previousGames: state.previousGames,
+    };
     default: return state;
   }
 };
@@ -102,6 +132,7 @@ const render = () => {
       handleReset={() => store.dispatch({ type: "RESET" })}
       player1Serving={state.player1Serving}
       winner={state.winner}
+      previousGames={state.previousGames}
     />,
     document.getElementById("root")
   );

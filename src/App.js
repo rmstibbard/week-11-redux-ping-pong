@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Reset from './components/Reset';
 import Success from './components/Success';
 import PlayerCard from './components/PlayerCard';
+import PreviousGames from './components/PreviousGames';
 
 const App = (
   {
@@ -12,7 +13,8 @@ const App = (
     handleClickPlayer2,
     player1Serving,
     handleReset,
-    winner
+    winner,
+    previousGames
   }
 ) => {
   return (
@@ -44,6 +46,8 @@ const App = (
       <Success winner={winner} />
 
       <Reset handleReset={handleReset} />
+
+      <PreviousGames previousGames={previousGames} />
 
     </React.Fragment >);
 
