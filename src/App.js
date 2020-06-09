@@ -1,19 +1,17 @@
 import React from "react";
 import Header from './components/Header';
 import Reset from './components/Reset';
-import Success from './components/Success';
-import PlayerCard from './components/PlayerCard';
-import PreviousGames from './components/PreviousGames';
+import Winner from './components/Winner/';
+import PreviousGames from './components/PreviousGames/';
+import Player1 from './components/Player/Player1';
+import Player2 from './components/Player/Player2';
 
 const App = (
   {
-    player1,
-    player2,
     handleClickPlayer1,
     handleClickPlayer2,
     player1Serving,
     handleReset,
-    winner,
     previousGames
   }
 ) => {
@@ -24,26 +22,11 @@ const App = (
       <Header />
 
       <div className="row mb-4">
-
-        <PlayerCard
-          player="1"
-          score={player1}
-          winner={winner}
-          handleClick={handleClickPlayer1}
-          serving={player1Serving}
-        />
-
-        <PlayerCard
-          player="2"
-          score={player2}
-          winner={winner}
-          handleClick={handleClickPlayer2}
-          serving={!player1Serving}
-        />
-
+        <Player1 handleClick={handleClickPlayer1} />
+        <Player2 handleClick={handleClickPlayer2} />
       </div>
 
-      <Success winner={winner} />
+      <Winner />
 
       <Reset handleReset={handleReset} />
 

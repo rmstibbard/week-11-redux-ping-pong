@@ -4,14 +4,10 @@ import './index.css';
 import App from './App';
 import { createStore, compose } from "redux";
 import persistState from "redux-localstorage";
+import { Provider } from "react-redux";
+import initial from "./data/initial";
+//import reducers from "./data/reducers";
 
-const initial = {
-  player1: 0,
-  player2: 0,
-  player1Serving: true,
-  winner: "",
-  previousGames: []
-};
 
 
 const player1Scores = (state) => (
@@ -116,27 +112,13 @@ const store = createStore(
   composeEnhancers(persistState())
 );
 
-store.subscribe(() => {
-  const state = store.getState();
-})
-
-const render = () => {
-  let state = store.getState();
-
-  ReactDOM.render( // Not good practice to have this inside render
+ReactDOM.render( // Not good practice to have this inside render
+  <Provider store={store}>
     <App
-      player1={state.player1}
-      player2={state.player2}
       handleClickPlayer1={() => store.dispatch({ type: "PLAYER1_SCORES" })}
       handleClickPlayer2={() => store.dispatch({ type: "PLAYER2_SCORES" })}
       handleReset={() => store.dispatch({ type: "RESET" })}
-      player1Serving={state.player1Serving}
-      winner={state.winner}
-      previousGames={state.previousGames}
     />,
-    document.getElementById("root")
-  );
-};
-
-store.subscribe(render);
-render();
+    </Provider>,
+  document.getElementById("root")
+);

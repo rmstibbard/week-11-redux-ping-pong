@@ -20,7 +20,7 @@ const PreviousGames = ({ previousGames }) => (
 
             {
               previousGames.map((previousGame, index) => (
-                <tr>
+                <tr key={index}>
                   <td>
                     {index}
                   </td>
@@ -35,7 +35,7 @@ const PreviousGames = ({ previousGames }) => (
       </div>
     </div >
 
-  ) : (<p> No games stored</p>)
+  ) : (<p> No previous games stored</p>)
 );
 
 export default PreviousGames;

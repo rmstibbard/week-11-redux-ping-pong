@@ -1,8 +1,8 @@
 import React from "react";
 
-const PlayerCard = (
+const Player = (
   {
-    player,
+    playerName,
     score,
     winner,
     handleClick,
@@ -10,8 +10,8 @@ const PlayerCard = (
   }
 ) => (
     <div className="col-md-6 mt-4">
-      <div className={"card text-center " + (serving === true ? "bg-dark text-white" : "")}>
-        <h5 className="card-header">Player {player}</h5>
+      <div className={"card text-center " + (serving ? "bg-dark text-white" : "")}>
+        <h5 className="card-header">{playerName}</h5>
         <div className="card-body">
           <p className="card-text display-1">{score}</p>
         </div>
@@ -32,4 +32,4 @@ const PlayerCard = (
 
   )
 
-export default PlayerCard;
+export default Player;

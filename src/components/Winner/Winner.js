@@ -1,6 +1,6 @@
 import React from "react";
 
-const Reset = ({ winner }) => (
+const Winner = ({ winner }) => (
   <>
     <h2 className="alert alert-success">
       {(winner === "") ? <br /> : `Player ${winner} wins`}
@@ -9,5 +9,4 @@ const Reset = ({ winner }) => (
   </>
 )
 
-export default Reset;
-
+export default Winner;
