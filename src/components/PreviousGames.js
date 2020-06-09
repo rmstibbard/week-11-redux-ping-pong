@@ -24,13 +24,8 @@ const PreviousGames = ({ previousGames }) => (
                   <td>
                     {previousGames.length - index}
                   </td>
-                  <td>
-                    {previousGame.player1.score}
-                  </td>
-                  <td>
-                    {previousGame.player2.score}
-                  </td>
-
+                  <td className={previousGame.player1.won ? "winner" : "loser"}>{previousGame.player1.score}</td>
+                  <td className={previousGame.player1.won ? "winner" : "loser"}>{previousGame.player1.score}</td>
                 </tr>
               ))
             }
