@@ -38,7 +38,7 @@ const PreviousGames = ({ previousGames }) => (
           </tbody>
         </table>
       </div>
-    </div>
+    </div >
 
   ) : (<p> No games stored</p>)
 );
