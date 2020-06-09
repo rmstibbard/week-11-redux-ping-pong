@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { createStore, compose } from "redux";
+import persistState from "redux-localstorage";
 
-import { createStore } from "redux";
 
 const initial = {
   player1: 0,
@@ -77,10 +78,12 @@ const reducer = (state, action) => {
   }
 };
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const store = createStore(
   reducer,
   initial,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()  // Enable redux devtools
+  composeEnhancers(persistState())
 );
 
 store.subscribe(() => {
