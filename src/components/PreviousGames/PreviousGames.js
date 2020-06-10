@@ -21,7 +21,7 @@ const PreviousGames = ({ previousGames }) => (
             {
               previousGames.reverse().map((previousGame, index) => (
                 <tr key={index}>
-                  <td>
+                  <td className="game-no">
                     {previousGames.length - index}
                   </td>
                   <td className={previousGame.player1.won ? " winner" : " loser"}>{previousGame.player1.score}</td>

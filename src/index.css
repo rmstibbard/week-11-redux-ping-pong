@@ -25,18 +25,23 @@ code {
   margin-bottom: 40px;
 }
 
-td.loser {
+.previous-games td.loser {
   background-color: red;
 }
 
-td.winner {
-  background-color: aquamarine;
-}
-
-td.game-no {
+.previous-games td.winner {
+  background-color: lightgreen;
   font-weight: bold;
 }
 
-td {
+.previous-games td.game-no {
+  font-weight: bold;
+}
+
+.previous-games td {
   border: none;
+}
+
+.previous-games th {
+  font-size: 1.1rem;
 }
