@@ -33,7 +33,7 @@ const PreviousGames = ({ previousGames }) => (
           </tbody>
         </table>
       </div>
-    </div >
+    </div>
 
   ) : (
       <div className="previous-games">

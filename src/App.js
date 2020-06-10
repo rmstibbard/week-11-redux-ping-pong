@@ -1,5 +1,6 @@
 import React from "react";
 import Header from './components/Header';
+import Form from './components/Form/';
 import Reset from './components/Reset/';
 import Winner from './components/Winner/';
 import PreviousGames from './components/PreviousGames/';
@@ -11,6 +12,7 @@ const App = () => {
   return (
     <React.Fragment>
       <Header />
+      <Form />
       <div className="row mb-4">
         <Player1 />
         <Player2 />

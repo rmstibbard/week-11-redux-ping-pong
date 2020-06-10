@@ -10,6 +10,13 @@ export const player2Scores = () => {
   }
 }
 
+export const saveSettings = (data) => {
+  return {
+    type: "SAVE_SETTINGS",
+    data: data
+  }
+}
+
 export const reset = () => {
   return {
     type: "RESET"

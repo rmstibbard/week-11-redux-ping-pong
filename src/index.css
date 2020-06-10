@@ -17,6 +17,7 @@ code {
 .previous-games table {
   border-collapse: separate;
   border-spacing: 5px;
+  border: 2px solid black;
 }
 
 .previous-games h1 {
