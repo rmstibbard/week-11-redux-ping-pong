@@ -18,7 +18,8 @@ const App = () => {
       <Winner />
       <Reset />
       <PreviousGames />
-    </React.Fragment >);
+    </React.Fragment >
+  );
 };
 
 export default App;

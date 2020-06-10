@@ -1,7 +1,7 @@
 import React from "react";
 
 const PreviousGames = ({ previousGames }) => (
-  previousGames ? (
+  (previousGames.length > 0) ? (
 
     <div className="previous-games">
 
@@ -19,10 +19,10 @@ const PreviousGames = ({ previousGames }) => (
           <tbody>
 
             {
-              previousGames.map((previousGame, index) => (
+              previousGames.reverse().map((previousGame, index) => (
                 <tr key={index}>
                   <td>
-                    {index}
+                    {previousGames.length - index}
                   </td>
                   <td className={previousGame.player1.won ? " winner" : " loser"}>{previousGame.player1.score}</td>
                   <td className={previousGame.player2.won ? " winner" : " loser"}>{previousGame.player2.score}</td>
@@ -35,7 +35,11 @@ const PreviousGames = ({ previousGames }) => (
       </div>
     </div >
 
-  ) : (<p> No previous games stored</p>)
+  ) : (
+      <div className="previous-games">
+        <h1> No previous games stored</h1>
+      </div>
+    )
 );
 
 export default PreviousGames;
