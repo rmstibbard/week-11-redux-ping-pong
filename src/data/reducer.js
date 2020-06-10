@@ -1,39 +1,38 @@
 import initial from "./initial";
 
-
 const player1Scores = (state) => (
   {
     ...state,
-    player1: state.player1 + 1
+    player1Score: state.player1Score + 1
   }
 );
 
 const player2Scores = (state) => (
   {
     ...state,
-    player2: state.player2 + 1
+    player2Score: state.player2Score + 1
   }
 );
 
 const setServer = (state) => {
-  const { player1, player2, player1Serving } = state;
+  const { player1Score, player2Score, player1Serving } = state;
 
   let changeServer = 5;
 
-  if ((player1 >= 20) && (player2 >= 20)) {
+  if ((player1Score >= 20) && (player2Score >= 20)) {
     changeServer = 2;
   }
 
   return (
     {
       ...state,
-      player1Serving: (player1 + player2) % changeServer === 0 ? !player1Serving : player1Serving
+      player1Serving: (player1Score + player2Score) % changeServer === 0 ? !player1Serving : player1Serving
     }
   )
 }
 
 const winningPlayer = (state) => {
-  if ((state.player1 >= 21) && (state.player1 - state.player2 >= 2)) {
+  if ((state.player1Score >= 21) && (state.player1Score - state.player2Score >= 2)) {
     return (
       {
         ...state,
@@ -42,11 +41,11 @@ const winningPlayer = (state) => {
           ...state.previousGames,
           {
             player1: {
-              score: state.player1,
+              score: state.player1Score,
               won: true
             },
             player2: {
-              score: state.player2,
+              score: state.player2Score,
               won: false
             }
           }
@@ -54,7 +53,7 @@ const winningPlayer = (state) => {
       }
     )
   }
-  if ((state.player2 >= 21) && (state.player2 - state.player1 >= 2)) {
+  if ((state.player2Score >= 21) && (state.player2Score - state.player1Score >= 2)) {
     return (
       {
         ...state,

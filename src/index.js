@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import { Provider } from "react-redux";
 import store from './data/store';
+import './index.css';
+import App from './App';
 
-
-ReactDOM.render( // Not good practice to have this inside render
+ReactDOM.render(
   <Provider store={store}>
     <App
       handleClickPlayer1={() => store.dispatch({ type: "PLAYER1_SCORES" })}
