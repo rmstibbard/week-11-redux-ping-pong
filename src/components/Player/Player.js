@@ -16,15 +16,9 @@ const Player = (
           <p className="card-text display-1">{score}</p>
         </div>
         <div className="card-footer">
-          {winner === "" ? (
-            <button
-              className="form-control btn btn-success" onClick={handleClick} >
-              +
-            </button>
-          ) :
-            (
-              <button className="form-control btn btn-disabled" disabled >X</button>
-            )
+          {winner === "" ?
+            (<button className="form-control btn btn-success" onClick={handleClick} >+</button>) :
+            (<button className="form-control btn btn-disabled" disabled >X</button>)
           }
         </div>
       </div>

@@ -8,7 +8,6 @@ import Player2 from './components/Player/Player2';
 
 const App = (
   {
-    handleClickPlayer2,
     player1Serving,
     handleReset,
     previousGames
@@ -22,7 +21,7 @@ const App = (
 
       <div className="row mb-4">
         <Player1 />
-        <Player2 handleClick={handleClickPlayer2} />
+        <Player2 />
       </div>
 
       <Winner />

@@ -62,11 +62,11 @@ const winningPlayer = (state) => {
           ...state.previousGames,
           {
             player1: {
-              score: state.player1,
+              score: state.player1Score,
               won: false
             },
             player2: {
-              score: state.player2,
+              score: state.player2Score,
               won: true
             }
           }
@@ -81,7 +81,6 @@ const winningPlayer = (state) => {
     }
   )
 }
-
 
 const reducer = (state, action) => {
   switch (action.type) {
