@@ -37,19 +37,39 @@ class Form extends Component {
       <form onSubmit={this.handleSubmit}>
         <div className="form-group">
           <label>Player 1 Name</label>
-          <input className="form-control" onChange={(e) => this.handleChange(e, "player1Name")} value={player1Name} />
+          <input
+            type="text"
+            className="form-control"
+            onChange={(e) => this.handleChange(e, "player1Name")} value={player1Name}
+          />
         </div>
         <div className="form-group">
           <label>Player 2 Name</label>
-          <input className="form-control" onChange={(e) => this.handleChange(e, "player2Name")} value={player2Name} />
+          <input
+            type="text"
+            className="form-control"
+            onChange={(e) => this.handleChange(e, "player2Name")} value={player2Name}
+          />
         </div>
         <div className="form-group">
           <label>Winning Score</label>
-          <input className="form-control" onChange={(e) => this.handleChange(e, "winningScore")} value={winningScore} />
+          <input
+            type="number"
+            min="1"
+            max="21"
+            className="form-control"
+            onChange={(e) => this.handleChange(e, "winningScore")} value={winningScore}
+          />
         </div>
         <div className="form-group">
-          <label>Alternate Every</label>
-          <input className="form-control" onChange={(e) => this.handleChange(e, "alternateEvery")} value={alternateEvery} />
+          <label>Change Server Interval</label>
+          <input
+            className="form-control"
+            type="number"
+            min="1"
+            max="10"
+            onChange={(e) => this.handleChange(e, "alternateEvery")} value={alternateEvery}
+          />
         </div>
         <button className="btn btn-primary">Save</button>
       </form>
