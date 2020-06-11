@@ -1,9 +1,9 @@
 import React from "react";
 
 const Reset = ({ handleReset }) => (
-  <button className="btn btn-danger" onClick={handleReset}>
-    Reset
-  </button>
+  <div className="reset">
+    <button className="btn btn-danger reset" onClick={handleReset}>Reset</button>
+  </div>
 )
 
 export default Reset;

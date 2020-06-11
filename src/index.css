@@ -39,3 +39,19 @@ code {
   background-color: lightgreen;
   font-weight: bold;
 }
+
+h2.winner {
+  text-align: center;
+}
+
+.reset {
+  text-align: center;
+}
+
+.reset button {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 400px;
+  padding: 20px;
+  font-size: 1.2rem;
+}
