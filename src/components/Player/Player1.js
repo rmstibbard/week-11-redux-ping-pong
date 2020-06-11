@@ -8,7 +8,7 @@ const mapStateToProps = (state) => {
     playerName: state.player1Name,
     score: state.player1Score,
     winner: state.winner,
-    serving: state.player1Serving
+    serving: state.player1Serving,
   }
 }
 
