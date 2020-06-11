@@ -1,4 +1,5 @@
 const initial = {
+  gameSetUp: false,
   player1Name: "",
   player2Name: "",
   winningScore: 21,

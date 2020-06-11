@@ -42,11 +42,13 @@ const winningPlayer = (state) => {
           {
             player1: {
               score: state.player1Score,
-              won: true
+              won: true,
+              name: state.player1Name,
             },
             player2: {
               score: state.player2Score,
-              won: false
+              won: false,
+              name: state.player2Name,
             }
           }
         ]
@@ -63,11 +65,13 @@ const winningPlayer = (state) => {
           {
             player1: {
               score: state.player1Score,
-              won: false
+              won: false,
+              name: state.player1Name,
             },
             player2: {
               score: state.player2Score,
-              won: true
+              won: true,
+              name: state.player2Name,
             }
           }
         ]
@@ -89,6 +93,7 @@ const saveSettings = (state, { data }) => (
     player2Name: data.player2Name,
     winningScore: data.winningScore,
     alternateEvery: data.alternateEvery,
+    gameSetUp: true
   }
 )
 
