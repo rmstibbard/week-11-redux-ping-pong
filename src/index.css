@@ -10,8 +10,13 @@ code {
 }
 
 .previous-games {
-  width: 50%;
+  width: 70%;
   margin: auto;
+}
+
+.previous-games td {
+  border: none;
+  width: 17.5%
 }
 
 .previous-games table {
@@ -27,21 +32,10 @@ code {
 
 .previous-games td.loser {
   background-color: red;
+  font-weight: bold;
 }
 
 .previous-games td.winner {
   background-color: lightgreen;
   font-weight: bold;
-}
-
-.previous-games td.game-no {
-  font-weight: bold;
-}
-
-.previous-games td {
-  border: none;
-}
-
-.previous-games th {
-  font-size: 1.1rem;
 }

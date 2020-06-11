@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import Player from './Player';
 import { player1Scores } from '../../data/actions';
 
+
 const mapStateToProps = (state) => {
   return {
     playerName: state.player1Name,

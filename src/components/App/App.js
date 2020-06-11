@@ -2,7 +2,6 @@ import React from "react";
 import Header from '../Header';
 import Form from '../Form';
 import Game from '../Game';
-import initial from "../../data/initial";
 
 class App extends React.Component {
 

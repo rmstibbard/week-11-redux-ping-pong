@@ -36,7 +36,7 @@ const winningPlayer = (state) => {
     return (
       {
         ...state,
-        winner: "1",
+        winner: state.player1Name,
         previousGames: [
           ...state.previousGames,
           {
@@ -59,7 +59,7 @@ const winningPlayer = (state) => {
     return (
       {
         ...state,
-        winner: "2",
+        winner: state.player2Name,
         previousGames: [
           ...state.previousGames,
           {
