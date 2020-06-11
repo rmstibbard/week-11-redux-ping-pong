@@ -9,6 +9,37 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+.header h1 {
+  text-align: center;
+  font-size: 4.5rem;
+}
+
+.setup-form {
+  width: 70%;
+  margin: 30px auto;
+}
+
+.setup-form label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.setup-form input {
+  font-size: 1.1rem;
+  font-weight: normal;
+}
+
+.game-setup {
+  text-align: center;
+}
+
+.game-setup button {
+  width: 300px;
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+
 .previous-games {
   width: 70%;
   margin: auto;
