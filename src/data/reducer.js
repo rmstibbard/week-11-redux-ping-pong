@@ -3,116 +3,139 @@ import initial from "./initial";
 const player1Scores = (state) => (
   {
     ...state,
-    player1Score: state.player1Score + 1
+    player_1: {
+      score: state.player_1.score + 1,
+    },
   }
 );
 
 const player2Scores = (state) => (
   {
     ...state,
-    player2Score: state.player2Score + 1
+    player_2: {
+      score: state.player_2.score + 1,
+    },
   }
 );
 
-const setServer = (state) => {
-  const { player1Score, player2Score, player1Serving } = state;
+// const setServer = (state) => {
+//   const {
+//     player_1: { // - How to handle nested JSON here?
+//       score,
+//       serving
+//     },
+//     player_2: {
+//       score,
+//       serving
+//     }
+//   } = state;
 
-  let changeServer = state.alternateEvery;
+//   let changeServer = state.change_serve;
 
-  if ((player1Score >= 20) && (player2Score >= 20)) {
-    changeServer = 2;
-  }
+//   if ((player_1.score >= 20) && (player_2.score >= 20)) {
+//     changeServer = 2;
+//   }
 
-  return (
-    {
-      ...state,
-      player1Serving: (player1Score + player2Score) % changeServer === 0 ? !player1Serving : player1Serving
-    }
-  )
-}
+//   return (
+//     {
+//       ...state,
+//       player_1.serving: (player_1.score + player_2.score) % change_serve === 0 ? !player_1.serving : player_1.serving // ????? TERNARY NO LONGER WORKING - Nested JSON again
+// }
+//   )
+// }
 
-const winningPlayer = (state) => {
-  if ((state.player1Score >= state.winningScore) && (state.player1Score - state.player2Score >= 2)) {
-    return (
-      {
-        ...state,
-        winner: state.player1Name,
-        previousGames: [
-          ...state.previousGames,
-          {
-            player1: {
-              score: state.player1Score,
-              won: true,
-              name: state.player1Name,
-            },
-            player2: {
-              score: state.player2Score,
-              won: false,
-              name: state.player2Name,
-            }
-          }
-        ]
-      }
-    )
-  }
-  if ((state.player2Score >= state.winningScore) && (state.player2Score - state.player1Score >= 2)) {
-    return (
-      {
-        ...state,
-        winner: state.player2Name,
-        previousGames: [
-          ...state.previousGames,
-          {
-            player1: {
-              score: state.player1Score,
-              won: false,
-              name: state.player1Name,
-            },
-            player2: {
-              score: state.player2Score,
-              won: true,
-              name: state.player2Name,
-            }
-          }
-        ]
-      }
-    )
-  }
-  return (
-    {
-      ...state,
-      winner: ""
-    }
-  )
-}
+// const winningPlayer = (state) => {
+//   if ((state.player_1.score >= state.winning_score) && (state.player_1.score - state.player_2.score >= 2)) {
+//     return (
+//       {
+//         ...state,
+//         previousGames: [
+//           ...state.previousGames,
+//           {
+//             player_1: {
+//               score: state.player1Score,
+//               won: true,
+//               name: state.player_1.name,
+//             },
+//             player2: {
+//               score: state.player2Score,
+//               won: false,
+//               name: state.player_2.name,
+//             }
+//           }
+//         ]
+//       }
+//     )
+//   }
+//   if ((state.player_2.score >= state.winning_score) && (state.player_2.score - state.player1_Score >= 2)) {
+//     return (
+//       {
+//         ...state,
+//         previousGames: [
+//           ...state.previousGames,
+//           {
+//             player1: {
+//               score: state.player1Score,
+//               won: false,
+//               name: state.player_1.name,
+//             },
+//             player2: {
+//               score: state.player2Score,
+//               won: true,
+//               name: state.player_2.name,
+//             }
+//           }
+//         ]
+//       }
+//     )
+//   }
+//   return (
+//     {
+//       ...state,
+//     }
+//   )
+// }
 
 const saveSettings = (state, { data }) => (
   {
     ...state,
-    player1Name: data.player1Name,
-    player2Name: data.player2Name,
-    winningScore: data.winningScore,
-    alternateEvery: data.alternateEvery,
-    gameSetUp: true
+    id: data.id,
+    player_1: {
+      name: data.player_1.name,
+    },
+    player_2: {
+      name: data.player_2.name,
+    },
+    winning_score: data.winning_score,
+    change_serve: data.change_serve,
+    game_setup: true
   }
 )
 
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "PLAYER1_SCORES": return winningPlayer(setServer(player1Scores(state)));
-    case "PLAYER2_SCORES": return winningPlayer(setServer(player2Scores(state)));
+    case "PLAYER1_SCORES": return player1Scores(state);
+    case "PLAYER2_SCORES": return player2Scores(state);
     case "SAVE_SETTINGS": return saveSettings(state, action);
     case "RESET": return {
       ...initial,
-      player1Name: state.player1Name,
-      player2Name: state.player2Name,
-      winningScore: state.winningScore,
-      alternateEvery: state.alternateEvery,
+      player_1: {
+        name: state.player_1.name,
+      },
+      player_2: {
+        name: state.player_2.name,
+      },
+      winning_score: state.winning_score,
+      change_serve: state.change_serve,
       previousGames: state.previousGames,
     };
     default: return state;
   }
 };
+
+// POST, PATCH - same response
+// GET - previous games in array of same format
+// DELETE
 
 export default reducer;

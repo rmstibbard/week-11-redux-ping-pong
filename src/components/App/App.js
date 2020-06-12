@@ -10,7 +10,7 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Header />
-        {this.props.gameSetUp ? <Game /> : <Form />}
+        {this.props.game_setup ? <Game /> : <Form />}
       </React.Fragment >
     );
 

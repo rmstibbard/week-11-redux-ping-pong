@@ -3,7 +3,7 @@ import App from './App';
 
 const mapStateToProps = (state) => {
   return {
-    gameSetUp: state.gameSetUp
+    game_setup: state.game_setup
   }
 }
 
