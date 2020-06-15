@@ -30,7 +30,7 @@ class Form extends Component {
   }
 
   render() {
-    let { player_1.name, player_2.name, winning_score, change_serve } = this.state;
+    let { player_1, player_2, winning_score, change_serve } = this.state;
 
     return (
       <form onSubmit={this.handleSubmit} className="setup-form">
@@ -39,7 +39,7 @@ class Form extends Component {
           <input
             type="text"
             className="form-control game-setup"
-            onChange={(e) => this.handleChange(e, "player_1.name")} value={player_1.name}
+            onChange={(e) => this.handleChange(e, "player_1")} value={player_1}
           />
         </div>
         <div className="form-group game-setup">
@@ -47,7 +47,7 @@ class Form extends Component {
           <input
             type="text"
             className="form-control game-setup"
-            onChange={(e) => this.handleChange(e, "player_2.name")} value={player_2.name}
+            onChange={(e) => this.handleChange(e, "player_2")} value={player_2}
           />
         </div>
         <div className="form-group game-setup">

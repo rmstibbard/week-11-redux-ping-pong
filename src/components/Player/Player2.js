@@ -1,21 +1,20 @@
 import { connect } from 'react-redux';
 import Player from './Player';
-import { player2Scores } from '../../data/actions';
+import { patchGame } from '../../data/api';
 
 const mapStateToProps = (state) => {
   return {
     playerName: state.player_2.name,
-    score: state.player2Score,
-    winner: state.winner,
-    serving: !state.player1Serving
+    score: state.player_2.score,
+    winner: state.player_2.won,
+    serving: state.player_2.serving,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleClick: () => dispatch(player2Scores())
+    handleClick: () => dispatch(patchGame(2))
   }
 }
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(Player);

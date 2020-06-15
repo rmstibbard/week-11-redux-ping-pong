@@ -4,7 +4,6 @@ import PreviousGames from './PreviousGames';
 const mapStateToProps = (state) => {
   return {
     previousGames: state.previousGames,
-
   }
 }
 
