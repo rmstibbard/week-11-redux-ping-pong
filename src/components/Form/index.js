@@ -1,21 +1,32 @@
 import { connect } from 'react-redux';
 import Form from './Form';
-import { saveSettings } from '../../data/actions';
+import { postGame } from "../../data/api";
 
 const mapStateToProps = (state) => {
   return {
-    player1Name: state.player1Name,
-    player2Name: state.player2Name,
-    winningScore: state.winningScore,
-    alternateEvery: state.alternateEvery
+
+    player_1: {
+      name: state.player_1.name,
+      score: state.player_1.score,
+      serving: true,
+      won: false
+    },
+
+    player_2: {
+      name: state.player_2.name,
+      score: state.player_2.score,
+      serving: false,
+      won: false
+    },
+
+    winning_score: state.winning_score,
+    change_serve: state.change_serve
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleSave: (data) => dispatch(
-      saveSettings(data)
-    )
+    handleSave: (data) => dispatch(postGame(data))
   }
 }
 
