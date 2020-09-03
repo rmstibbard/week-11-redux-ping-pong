@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import Player from './Player';
+
 import { patchGame } from '../../data/api';
 
 const mapStateToProps = (state) => {
@@ -15,6 +16,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     handleClick: () => dispatch(patchGame(1))
   }
+
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Player);
