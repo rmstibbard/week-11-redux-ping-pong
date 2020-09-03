@@ -1,14 +1,25 @@
 const initial = {
-  gameSetUp: false,
-  player1Name: "",
-  player2Name: "",
-  winningScore: 21,
-  alternateEvery: 5,
-  player1Score: 0,
-  player2Score: 0,
-  player1Serving: true,
-  winner: "",
-  previousGames: []
+  id: null,
+  complete: false,
+  loaded: false,
+  game_setup: false,
+  winning_score: 21,
+  change_serve: 5,
+
+  player_1: {
+    name: '',
+    score: 0,
+    serving: true,
+    won: false
+  },
+
+  player_2: {
+    name: '',
+    score: 0,
+    serving: false,
+    won: false
+  }
+
 };
 
 export default initial;

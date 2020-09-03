@@ -1,6 +1,6 @@
 import React from "react";
 
-const PreviousGames = ({ previousGames }) => (
+const PreviousGames = ({ previousGames = [] }) => (
   (previousGames.length > 0) ? (
 
     <div className="previous-games">

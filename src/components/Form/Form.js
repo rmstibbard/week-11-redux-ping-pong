@@ -5,14 +5,13 @@ class Form extends Component {
     super(props);
 
     this.state = {
-      player1Name: props.player1Name,
-      player2Name: props.player2Name,
-      winningScore: props.winningScore,
-      alternateEvery: props.alternateEvery,
+      player_1: props.player_1.name,
+      player_2: props.player_2.name,
+      winning_score: props.winning_score,
+      change_serve: props.change_serve,
     };
 
     this.handleChange = this.handleChange.bind(this);
-
     this.handleSubmit = this.handleSubmit.bind(this);
 
   }
@@ -31,7 +30,7 @@ class Form extends Component {
   }
 
   render() {
-    let { player1Name, player2Name, winningScore, alternateEvery } = this.state;
+    let { player_1, player_2, winning_score, change_serve } = this.state;
 
     return (
       <form onSubmit={this.handleSubmit} className="setup-form">
@@ -40,7 +39,7 @@ class Form extends Component {
           <input
             type="text"
             className="form-control game-setup"
-            onChange={(e) => this.handleChange(e, "player1Name")} value={player1Name}
+            onChange={(e) => this.handleChange(e, "player_1")} value={player_1}
           />
         </div>
 
@@ -49,7 +48,7 @@ class Form extends Component {
           <input
             type="text"
             className="form-control game-setup"
-            onChange={(e) => this.handleChange(e, "player2Name")} value={player2Name}
+            onChange={(e) => this.handleChange(e, "player_2")} value={player_2}
           />
         </div>
         <div className="form-group game-setup">
@@ -59,7 +58,7 @@ class Form extends Component {
             min="1"
             max="21"
             className="form-control game-setup"
-            onChange={(e) => this.handleChange(e, "winningScore")} value={winningScore}
+            onChange={(e) => this.handleChange(e, "winning_score")} value={winning_score}
           />
         </div>
         <div className="form-group game-setup">
@@ -69,7 +68,7 @@ class Form extends Component {
             type="number"
             min="1"
             max="10"
-            onChange={(e) => this.handleChange(e, "alternateEvery")} value={alternateEvery}
+            onChange={(e) => this.handleChange(e, "change_serve")} value={change_serve}
           />
         </div>
         <div className="game-setup">
