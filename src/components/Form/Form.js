@@ -43,6 +43,7 @@ class Form extends Component {
             onChange={(e) => this.handleChange(e, "player1Name")} value={player1Name}
           />
         </div>
+
         <div className="form-group game-setup">
           <label>Player 2 Name</label>
           <input
