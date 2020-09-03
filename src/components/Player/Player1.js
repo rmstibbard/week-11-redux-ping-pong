@@ -3,18 +3,18 @@ import Player from './Player';
 import { player1Scores } from '../../data/actions';
 
 const mapStateToProps = (state) => {
-  return {
-    playerName: state.player1Name,
-    score: state.player1Score,
-    winner: state.winner,
-    serving: state.player1Serving,
-  }
+    return {
+        playerName: state.player1Name,
+        score: state.player1Score,
+        winner: state.winner,
+        serving: state.player1Serving,
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    handleClick: () => dispatch(player1Scores())
-  }
+    return {
+        handleClick: () => dispatch(player1Scores())
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Player);
